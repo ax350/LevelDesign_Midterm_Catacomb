@@ -7,6 +7,7 @@ public class IndividualSituations : MonoBehaviour
     public LockScript lockScript;
     public DestroyableTerrain.DestroyTerrainTrigger DestroyTerrainTrigger;
     public List<GameObject> gameObjects;
+    public EnemyList EnemyList;
     public enum situations
     { 
         OnlyLocks,
@@ -39,5 +40,10 @@ public class IndividualSituations : MonoBehaviour
     private void OnDisable()
     {
         //enabledLockScript()
+        EnemyList.releaseTheKraken();
+        foreach (var i in gameObjects)
+        {
+            i.SetActive(false);
+        }
     }
 }

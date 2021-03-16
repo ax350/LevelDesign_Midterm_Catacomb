@@ -8,11 +8,17 @@ public class Detection : MonoBehaviour
     public Transform player;
     public float maxAngle;
     public float maxRadius;
+
+    private static Renderer enemyRenderer;
+    private static int nameID;
     
     private bool isInFov = false;
 
     void Start()
     {
+        enemyRenderer = GetComponent<Renderer>();
+        nameID = Shader.PropertyToID("_Color");
+        Debug.Log(nameID);
     }
 
 
@@ -73,6 +79,8 @@ public class Detection : MonoBehaviour
                             if (hit.transform == target)
                             {
                                 Debug.Log("Found Player");
+                                enemyRenderer.material.color = Color.red;
+                                SceneManager.LoadScene(0);
                                 return true;
                             }
 
