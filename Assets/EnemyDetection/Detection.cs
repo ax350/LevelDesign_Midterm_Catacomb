@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 public class Detection : MonoBehaviour
 {
     public Transform player;
+    public GameObject playerObject;
     public float maxAngle;
     public float maxRadius;
 
-    private static Renderer enemyRenderer;
+    private static MeshRenderer enemyRenderer;
     private static int nameID;
     
     private bool isInFov = false;
 
     void Start()
     {
-        enemyRenderer = GetComponent<Renderer>();
+        enemyRenderer = this.GetComponent<MeshRenderer>();
         nameID = Shader.PropertyToID("_Color");
         Debug.Log(nameID);
     }
@@ -51,9 +52,8 @@ public class Detection : MonoBehaviour
 
     }
 
-    public static bool inFOV(Transform checkingObject, Transform target, float maxAngle, float maxRadius)
+    public bool inFOV(Transform checkingObject, Transform target, float maxAngle, float maxRadius, GameObject playerObject)
     {
-        Debug.Log("Found Something");
         Collider[] overlaps = new Collider[10];
         int count = Physics.OverlapSphereNonAlloc(checkingObject.position, maxRadius, overlaps);
 
@@ -78,9 +78,12 @@ public class Detection : MonoBehaviour
                         {
                             if (hit.transform == target)
                             {
-                                Debug.Log("Found Player");
-                                enemyRenderer.material.color = Color.red;
+                                
+                                //enemyRenderer.material.color = Color.red;
+                                //enemyRenderer.enabled = false;
                                 SceneManager.LoadScene(0);
+                                //playerObject.GetComponent<PlayerMoveOriginal>().hardwire();
+                                //Debug.Log("Found Player");
                                 return true;
                             }
 
@@ -97,6 +100,6 @@ public class Detection : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        isInFov = inFOV(transform, player, maxAngle, maxRadius);
+        isInFov = inFOV(transform, player, maxAngle, maxRadius, playerObject);
     }
 }

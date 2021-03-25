@@ -39,8 +39,8 @@ public class EnemyList : MonoBehaviour
             LineRenderer tmp = i.AddComponent<LineRenderer>();
             xradius = i.GetComponent<Detection>().maxRadius;
             yradius = xradius;
-            tmp.startWidth = .3f;
-            tmp.endWidth = .3f;
+            tmp.startWidth = .1f;
+            tmp.endWidth = .1f;
 
             tmp.positionCount = segments + 1;
             tmp.useWorldSpace = false;

@@ -51,4 +51,9 @@ public class PlayerMoveOriginal : MonoBehaviour
             y_velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
+
+    public void hardwire()
+    {
+        transform.position = new Vector3(0f, 1f, 50f);
+    }
 }
