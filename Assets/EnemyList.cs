@@ -61,7 +61,7 @@ public class EnemyList : MonoBehaviour
             x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
             y = 0;
             z = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
-            line.SetPosition(i, new Vector3(x, y, z));
+           // line.SetPosition(i, new Vector3(x, y, z));
 
             angle += (360f / segments);
         }
