@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: DistanceDissolve
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity
+    Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=18900\n996;145;1156;1234;2799.832;1492.986;2.415212;True;False\nNode;AmplifyShaderEditor.SimpleAddOpNode;11;-528.6662,-40.85526;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ObjectToWorldTransfNode;2;-1777.148,-682.3702;Inherit;True;1;0;FLOAT4;0,0,0,1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;36;-1334.607,-423.965;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT4;1,1,1,1;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.PosVertexDataNode;1;-1772.129,-460.3307;Inherit;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.SimpleAddOpNode;4;-1483.26,-514.3328;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.ObjectScaleNode;35;-1959.677,-592.9241;Inherit;True;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.WorldPosInputsNode;14;-1554.979,103.3473;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.DistanceOpNode;5;-557.3644,-280.6238;Inherit;True;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;33;-1301.166,237.2784;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT4;0,0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.WorldPosInputsNode;37;-961.2952,-429.6364;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.NoiseGeneratorNode;12;-1151.904,187.3304;Inherit;True;Simple;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;3;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;15;-706.637,108.9968;Inherit;False;2;2;0;FLOAT;5;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SinTimeNode;34;-1490.966,298.3784;Inherit;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;29;-294.4324,-153.5321;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;10;-871.2,-42.51296;Inherit;False;distance;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ConditionalIfNode;19;128.6283,-119.4499;Inherit;False;False;5;0;INT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;32;-76.46852,-84.6768;Inherit;False;2;2;0;FLOAT;0;False;1;INT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;23;-411.205,31.46242;Inherit;False;reverse;0;0;False;1;0;INT;0;False;1;INT;0\nNode;AmplifyShaderEditor.FunctionInput;21;-137.2183,-253.3761;Inherit;False;Toggle;0;1;False;1;0;INT;0;False;1;INT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;18;-795.541,257.5074;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;6;-351.2112,187.2799;Inherit;True;Constant;_2;1;2;0;Create;True;0;0;0;False;0;False;1;1;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.WorldSpaceCameraPos;3;-1108.366,-99.16946;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionOutput;0;326.1195,-155.3437;Inherit;True;True;-1;opacity;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;11;0;10;0\nWireConnection;11;1;15;0\nWireConnection;36;0;4;0\nWireConnection;4;0;2;0\nWireConnection;4;1;1;0\nWireConnection;5;0;37;0\nWireConnection;5;1;3;0\nWireConnection;33;0;14;0\nWireConnection;33;1;34;0\nWireConnection;12;0;33;0\nWireConnection;15;1;18;0\nWireConnection;29;0;11;0\nWireConnection;29;1;5;0\nWireConnection;19;0;21;0\nWireConnection;19;2;6;0\nWireConnection;19;3;32;0\nWireConnection;19;4;6;0\nWireConnection;32;0;29;0\nWireConnection;32;1;23;0\nWireConnection;18;0;12;0\nWireConnection;0;0;19;0\nASEEND*/\n//CHKSM=A0A8FDEE71D4529B50DAA2F9F16C20015FC56170"
+  m_functionName: 
+  m_description: 
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 3
+  m_customNodeCategory: 
+  m_previewPosition: 0
+  m_hidden: 0

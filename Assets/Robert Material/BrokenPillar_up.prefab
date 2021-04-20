@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 4505070058090011526}
   - component: {fileID: 5650521494771057067}
   - component: {fileID: 5458565887126455521}
+  - component: {fileID: 4377309103853309568}
   m_Layer: 0
   m_Name: polySurface1
   m_TagString: Untagged
@@ -113,6 +114,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4377309103853309568
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966095971135291486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6329158148709259305, guid: 4000562139dc60547926e0075a0b1e3b, type: 3}
 --- !u!1 &2565826090317554084
 GameObject:
   m_ObjectHideFlags: 0
