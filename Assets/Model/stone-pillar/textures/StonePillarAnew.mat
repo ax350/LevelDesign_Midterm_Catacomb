@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoA:
-        m_Texture: {fileID: 2800000, guid: 0c564bccc34cb9346b9f9f4f395bf86e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7b07bb6acf5335b4495b08bc11677366, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoB:
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AmbientOccA:
-        m_Texture: {fileID: 2800000, guid: bcf497752f744c743bb6373fe842e20a, type: 3}
+        m_Texture: {fileID: 2800000, guid: af30d7d995edb0e41935e05440688c35, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AmbientOccB:
@@ -76,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalA:
-        m_Texture: {fileID: 2800000, guid: fcd62b3eae1831b4c800afd63abdae34, type: 3}
+        m_Texture: {fileID: 2800000, guid: e8e84c121ec23ec4f9011184e0b2b32e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalB:
@@ -92,7 +92,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessA:
-        m_Texture: {fileID: 2800000, guid: 20608d3efe77dd64b8f7b0fe5ad672b3, type: 3}
+        m_Texture: {fileID: 2800000, guid: f3a2a7f8c073a904db8d57e10da99db3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessB:
@@ -122,10 +122,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _distance: 0
+    - _distance: -5
     - _edgewidth: 1
     - _lerpMutiply: 0
-    - _off: 0
+    - _off: 1
     - _reverse: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -29,7 +29,7 @@ public class Current: PlayerState
         base.Enter();
         playerStateManager.currentTimeLinePrefab.SetActive(true);
         playerStateManager.pastTimeLinePrefab.SetActive(false);
-        playerStateManager.displayDistance = 0;
+        playerStateManager.displayDistance = -5;
     }
 
     public override void Leave()
@@ -40,7 +40,7 @@ public class Current: PlayerState
 
 public class CurrentToPast : PlayerState
 {
-    float distance = 0;
+    float distance = -1;
     public CurrentToPast(TransitionControl theGameStateManager) : base(theGameStateManager)
     {
 
@@ -103,7 +103,7 @@ public class Past : PlayerState
 
 public class PastToCurrent : PlayerState
 {
-    float distance = 0;
+    float distance = -1;
     public PastToCurrent(TransitionControl theGameStateManager) : base(theGameStateManager)
     {
 
@@ -113,7 +113,7 @@ public class PastToCurrent : PlayerState
     {
         playerStateManager.displayDistance = distance;
 
-        if (distance <= 0)
+        if (distance <= -1)
         {
             playerStateManager.ChangeState(new Current(playerStateManager));
         }
