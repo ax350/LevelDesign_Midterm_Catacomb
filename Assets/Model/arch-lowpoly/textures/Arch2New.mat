@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StonePillarAnew
+  m_Name: Arch2New
   m_Shader: {fileID: 4800000, guid: 77b2af5bff43fc84baa13c9543c52b2c, type: 3}
   m_ShaderKeywords: _OFF_ON
   m_LightmapFlags: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoA:
-        m_Texture: {fileID: 2800000, guid: 7b07bb6acf5335b4495b08bc11677366, type: 3}
+        m_Texture: {fileID: 2800000, guid: ce434fb9e13991040a3e55384d5f1427, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoB:
@@ -28,11 +28,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AmbientOccA:
-        m_Texture: {fileID: 2800000, guid: af30d7d995edb0e41935e05440688c35, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AmbientOccB:
-        m_Texture: {fileID: 2800000, guid: 0147bf2f4ce00ad4a9ab72f988a39046, type: 3}
+        m_Texture: {fileID: 2800000, guid: fc9bcc6093f2cc2498202128cf9abbb7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -57,14 +57,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _LerpMap:
         m_Texture: {fileID: 2800000, guid: 2e29d566a37e9e64eb825dfdc86f6dc6, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 1.27, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalicA:
-        m_Texture: {fileID: 2800000, guid: 770ce7d5cc47afe469798ae5da2c9e4a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 898f0e27735a8604c9b1743e7c44592a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalicB:
@@ -76,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalA:
-        m_Texture: {fileID: 2800000, guid: e8e84c121ec23ec4f9011184e0b2b32e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 36c7d69c8fa32294fb4b2b0ef3053c78, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalB:
@@ -92,7 +92,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessA:
-        m_Texture: {fileID: 2800000, guid: f3a2a7f8c073a904db8d57e10da99db3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9aa32358c3ee9074e8d8306e47763c9a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessB:

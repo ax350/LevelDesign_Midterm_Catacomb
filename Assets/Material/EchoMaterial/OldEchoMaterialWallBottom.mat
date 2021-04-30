@@ -121,7 +121,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - __dirty: 1
+    - __dirty: 0
     - _distance: 0
     - _edgewidth: 0
     - _lerpMutiply: 0.47
