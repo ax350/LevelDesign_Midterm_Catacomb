@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OldEchoMaterialWallBottom
+  m_Name: Arch1New
   m_Shader: {fileID: 4800000, guid: 77b2af5bff43fc84baa13c9543c52b2c, type: 3}
   m_ShaderKeywords: _OFF_ON
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,15 +20,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoA:
-        m_Texture: {fileID: 2800000, guid: 7b07bb6acf5335b4495b08bc11677366, type: 3}
+        m_Texture: {fileID: 2800000, guid: 474189626d66fae40ac388e0a56309b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoB:
         m_Texture: {fileID: 2800000, guid: fd3f0e14dd487d643a2c1d32cb3e79ed, type: 3}
-        m_Scale: {x: 1, y: 4.16}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AmbientOccA:
-        m_Texture: {fileID: 2800000, guid: af30d7d995edb0e41935e05440688c35, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8bbbb700267f5734eb9e34a138582051, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AmbientOccB:
@@ -57,14 +57,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _LerpMap:
         m_Texture: {fileID: 2800000, guid: 2e29d566a37e9e64eb825dfdc86f6dc6, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalicA:
-        m_Texture: {fileID: 2800000, guid: 20af95e712adc2040977847753a2b837, type: 3}
+        m_Texture: {fileID: 2800000, guid: bd78db7c9d541184b9b50ebb2771e2d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalicB:
@@ -76,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalA:
-        m_Texture: {fileID: 2800000, guid: e8e84c121ec23ec4f9011184e0b2b32e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 00cc3e76e7356b94eb36b21f774db7b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalB:
@@ -92,7 +92,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessA:
-        m_Texture: {fileID: 2800000, guid: f3a2a7f8c073a904db8d57e10da99db3, type: 3}
+        m_Texture: {fileID: 2800000, guid: ab1b90090fff27943bb08ff49221a5ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RoughnessB:
@@ -105,13 +105,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LerpValue: -0.69
+    - _LerpValue: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -122,9 +122,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _distance: 0
-    - _edgewidth: 0
-    - _lerpMutiply: 0.47
+    - _distance: -5
+    - _edgewidth: 1
+    - _lerpMutiply: 0
     - _off: 1
     - _reverse: 1
     m_Colors:
