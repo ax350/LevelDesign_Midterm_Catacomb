@@ -122,10 +122,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _distance: -5
+    - _distance: 299.55316
     - _edgewidth: 1
     - _lerpMutiply: 0.44
-    - _off: 1
+    - _off: 0
     - _reverse: -1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
