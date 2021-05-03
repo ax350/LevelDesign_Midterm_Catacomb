@@ -28,7 +28,7 @@ public class Current: PlayerState
     {
         base.Enter();
         playerStateManager.currentTimeLinePrefab.SetActive(true);
-        //playerStateManager.pastTimeLinePrefab.SetActive(false);
+        playerStateManager.pastTimeLinePrefab.SetActive(false);
         playerStateManager.displayDistance = -5;
     }
 
