@@ -25,7 +25,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _AlbedoB:
         m_Texture: {fileID: 2800000, guid: fd3f0e14dd487d643a2c1d32cb3e79ed, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _AmbientOccA:
         m_Texture: {fileID: 2800000, guid: 0ca3f34ad2ae59e45a6bb8f65bc10d8d, type: 3}
@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _AmbientOccB:
         m_Texture: {fileID: 2800000, guid: fc9bcc6093f2cc2498202128cf9abbb7, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 2, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _LerpMap:
         m_Texture: {fileID: 2800000, guid: 2e29d566a37e9e64eb825dfdc86f6dc6, type: 3}
-        m_Scale: {x: 0.3, y: 0.3}
+        m_Scale: {x: 0.3, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
@@ -69,7 +69,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MetalicB:
         m_Texture: {fileID: 2800000, guid: 5fd6d039b581c974bb85bec10e124a86, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -81,7 +81,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalB:
         m_Texture: {fileID: 2800000, guid: 3422f8e1280d50a4fa408dc15ebe1b9d, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
@@ -97,7 +97,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _RoughnessB:
         m_Texture: {fileID: 2800000, guid: 0147bf2f4ce00ad4a9ab72f988a39046, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
@@ -112,7 +112,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LerpValue: 0.03
+    - _LerpValue: -0.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
