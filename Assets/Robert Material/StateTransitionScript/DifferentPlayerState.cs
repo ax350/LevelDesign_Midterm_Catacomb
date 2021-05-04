@@ -19,7 +19,11 @@ public class Current: PlayerState
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerStateManager.ChangeState(new CurrentToPast(playerStateManager));
+            if (playerStateManager.CanTimeSwap)
+            {
+                playerStateManager.ChangeState(new CurrentToPast(playerStateManager));
+            }
+            
         }
 
     }
@@ -27,6 +31,7 @@ public class Current: PlayerState
     public override void Enter()
     {
         base.Enter();
+
         playerStateManager.currentTimeLinePrefab.SetActive(true);
         playerStateManager.pastTimeLinePrefab.SetActive(false);
         playerStateManager.displayDistance = -5;
@@ -35,6 +40,7 @@ public class Current: PlayerState
     public override void Leave()
     {
         base.Leave();
+
     }
 }
 
@@ -49,24 +55,63 @@ public class CurrentToPast : PlayerState
     public override void stateBehavior()
     {
         playerStateManager.displayDistance = distance;
-        
+
         if (distance >= playerStateManager.transitionLimit)
         {
             playerStateManager.ChangeState(new Past(playerStateManager));
         }
-        distance += Time.deltaTime*playerStateManager.transitonSpeed;
+        distance += Time.deltaTime * playerStateManager.transitonSpeed;
     }
 
     public override void Enter()
     {
         base.Enter();
+        foreach (Material a in playerStateManager.badMaterials)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 0);
+                
+            }
+
+        }
+        foreach (Material a in playerStateManager.goodMaterial)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 0);
+                
+
+            }
+
+        }
         playerStateManager.pastTimeLinePrefab.SetActive(true);
         playerStateManager.currentTimeLinePrefab.SetActive(true);
+        playerStateManager.displayDistance = -1;
     }
 
     public override void Leave()
     {
         base.Leave();
+        foreach (Material a in playerStateManager.badMaterials)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 1);
+                a.SetFloat("_reverse", 1);
+            }
+
+        }
+        foreach (Material a in playerStateManager.goodMaterial)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 1);
+                a.SetFloat("_reverse", -1);
+            }
+
+        }
+
     }
 }
 
@@ -81,7 +126,15 @@ public class Past : PlayerState
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            playerStateManager.ChangeState(new PastToCurrent(playerStateManager));
+            if (playerStateManager.Malfunction)
+            {
+                playerStateManager.ChangeState(new PastToPast(playerStateManager));
+            }
+            else if (playerStateManager.CanTimeSwap)
+            {
+                playerStateManager.ChangeState( new PastToCurrent(playerStateManager));
+            }
+
         }
 
 
@@ -90,6 +143,7 @@ public class Past : PlayerState
     public override void Enter()
     {
         base.Enter();
+
         playerStateManager.displayDistance = playerStateManager.transitionLimit;
         playerStateManager.pastTimeLinePrefab.SetActive(true);
         playerStateManager.currentTimeLinePrefab.SetActive(false);
@@ -98,6 +152,101 @@ public class Past : PlayerState
     public override void Leave()
     {
         base.Leave();
+    }
+}
+
+public class PastToPast : PlayerState
+{
+    float distance = -1;
+    bool goingUp = true;
+    public PastToPast(TransitionControl theGameStateManager) : base(theGameStateManager)
+    {
+
+    }
+
+    public override void stateBehavior()
+    {
+        /*
+        playerStateManager.displayDistance = distance;
+
+        if (distance <= -1)
+        {
+            playerStateManager.ChangeState(new Current(playerStateManager));
+        }
+        distance -= Time.deltaTime * playerStateManager.transitonSpeed;
+        */
+
+        playerStateManager.displayDistance = distance;
+        if (goingUp)
+        {
+            distance += Time.deltaTime * playerStateManager.transitonSpeed/5;
+            if (distance >= 15)
+            {
+                goingUp = false;
+            }
+        }
+        else if (!goingUp)
+        {
+            distance -= Time.deltaTime * playerStateManager.transitonSpeed/5;
+            if (distance <= 0)
+            {
+                playerStateManager.ChangeState(new Past(playerStateManager));
+            }
+        }
+
+        
+        
+
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        foreach (Material a in playerStateManager.badMaterials)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 0);
+
+            }
+
+        }
+        foreach (Material a in playerStateManager.goodMaterial)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 0);
+
+            }
+
+        }
+        playerStateManager.pastTimeLinePrefab.SetActive(true);
+        playerStateManager.currentTimeLinePrefab.SetActive(true);
+        //distance = playerStateManager.displayDistance;
+    }
+
+    public override void Leave()
+    {
+        base.Leave();
+        foreach (Material a in playerStateManager.badMaterials)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 1);
+                
+            }
+
+        }
+        foreach (Material a in playerStateManager.goodMaterial)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 1);
+                
+            }
+
+        }
+        playerStateManager.displayDistance = -1;
     }
 }
 
@@ -111,6 +260,7 @@ public class PastToCurrent : PlayerState
 
     public override void stateBehavior()
     {
+        /*
         playerStateManager.displayDistance = distance;
 
         if (distance <= -1)
@@ -118,21 +268,66 @@ public class PastToCurrent : PlayerState
             playerStateManager.ChangeState(new Current(playerStateManager));
         }
         distance -= Time.deltaTime * playerStateManager.transitonSpeed;
+        */
 
+        playerStateManager.displayDistance = distance;
+
+        if (distance >= playerStateManager.transitionLimit)
+        {
+            playerStateManager.ChangeState(new Current(playerStateManager));
+        }
+        distance += Time.deltaTime * playerStateManager.transitonSpeed;
 
     }
 
     public override void Enter()
     {
         base.Enter();
+        foreach (Material a in playerStateManager.badMaterials)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 0);
+
+            }
+
+        }
+        foreach (Material a in playerStateManager.goodMaterial)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 0);
+
+            }
+
+        }
         playerStateManager.pastTimeLinePrefab.SetActive(true);
         playerStateManager.currentTimeLinePrefab.SetActive(true);
-        distance = playerStateManager.displayDistance;
+        //distance = playerStateManager.displayDistance;
     }
 
     public override void Leave()
     {
         base.Leave();
+        foreach (Material a in playerStateManager.badMaterials)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 1);
+                a.SetFloat("_reverse", -1);
+            }
+
+        }
+        foreach (Material a in playerStateManager.goodMaterial)
+        {
+            if (a != null)
+            {
+                a.SetInt("_off", 1);
+                a.SetFloat("_reverse", 1);
+            }
+
+        }
+        playerStateManager.displayDistance = -1;
     }
 }
 
