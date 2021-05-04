@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TransitionControl : MonoBehaviour
 {
@@ -10,8 +11,12 @@ public class TransitionControl : MonoBehaviour
     public List<Material> goodMaterial;
     public List<Material> badMaterials;
     private PlayerState currentPlayerState;
+    public bool CanTimeSwap = false;
+    public bool Malfunction = false;
     public float transitonSpeed;
     public float transitionLimit;
+    [SerializeField]private TextMeshProUGUI uGUI;
+    public int count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +55,7 @@ public class TransitionControl : MonoBehaviour
     {
 
         currentPlayerState.stateBehavior();
+        uGUI.text = "shards collected " + count.ToString() + "/4";
         foreach (Material a in badMaterials)
         {
             if (a != null)
@@ -96,6 +102,26 @@ public class TransitionControl : MonoBehaviour
         }
     }
 
+
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        GameObject a = hit.gameObject;
+        if (a.CompareTag("Shards"))
+        {
+            if (a.name.Equals("TimeDevice"))
+            {
+                CanTimeSwap = true;
+            }
+            else
+            {
+count++;
+            }
+            
+            Debug.Log("collect");
+            
+            Destroy(a);
+        }
+    }
 
     public void ChangeState(PlayerState newPlayerState)
     {
