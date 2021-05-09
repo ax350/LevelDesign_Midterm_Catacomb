@@ -15,7 +15,9 @@ public class TransitionControl : MonoBehaviour
     public bool Malfunction = false;
     public float transitonSpeed;
     public float transitionLimit;
+    public Transform triggerCube;
     [SerializeField]private TextMeshProUGUI uGUI;
+    private string tooltip = "";
     public int count = 0;
     // Start is called before the first frame update
     void Start()
@@ -55,7 +57,12 @@ public class TransitionControl : MonoBehaviour
     {
 
         currentPlayerState.stateBehavior();
-        uGUI.text = "shards collected " + count.ToString() + "/4";
+        Debug.Log(Vector3.Distance(transform.position, triggerCube.position));
+        if (Vector3.Distance(transform.position,triggerCube.position) < 20 && count == 4 && currentPlayerState.ToString().Equals("Past"))
+        {
+            Malfunction = true;
+        }
+        uGUI.text = "shards collected " + count.ToString() + "/4" + tooltip;
         foreach (Material a in badMaterials)
         {
             if (a != null)
@@ -111,10 +118,11 @@ public class TransitionControl : MonoBehaviour
             if (a.name.Equals("TimeDevice"))
             {
                 CanTimeSwap = true;
+                tooltip = "\npress Q to switch timeline";
             }
             else
             {
-count++;
+                count++;
             }
             
             Debug.Log("collect");

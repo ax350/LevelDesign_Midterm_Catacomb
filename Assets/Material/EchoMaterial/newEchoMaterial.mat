@@ -10,8 +10,8 @@ Material:
   m_Name: newEchoMaterial
   m_Shader: {fileID: 4800000, guid: 77b2af5bff43fc84baa13c9543c52b2c, type: 3}
   m_ShaderKeywords: _OFF_ON
-  m_LightmapFlags: 0
-  m_EnableInstancingVariants: 0
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
