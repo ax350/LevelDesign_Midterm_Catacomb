@@ -31,7 +31,9 @@ public class Current: PlayerState
     public override void Enter()
     {
         base.Enter();
-
+        playerStateManager.flashLight.SetActive(true);
+        //set all current prop active
+        playerStateManager.currentTimelineProp.SetActive(true);
         playerStateManager.currentTimeLinePrefab.SetActive(true);
         playerStateManager.pastTimeLinePrefab.SetActive(false);
         playerStateManager.displayDistance = -5;
@@ -40,7 +42,8 @@ public class Current: PlayerState
     public override void Leave()
     {
         base.Leave();
-
+        playerStateManager.flashLight.SetActive(false);
+        playerStateManager.currentTimelineProp.SetActive(false);
     }
 }
 
@@ -143,7 +146,7 @@ public class Past : PlayerState
     public override void Enter()
     {
         base.Enter();
-
+        playerStateManager.pastTimelineProp.SetActive(true);
         playerStateManager.displayDistance = playerStateManager.transitionLimit;
         playerStateManager.pastTimeLinePrefab.SetActive(true);
         playerStateManager.currentTimeLinePrefab.SetActive(false);
@@ -152,6 +155,7 @@ public class Past : PlayerState
     public override void Leave()
     {
         base.Leave();
+        playerStateManager.pastTimelineProp.SetActive(false);
     }
 }
 

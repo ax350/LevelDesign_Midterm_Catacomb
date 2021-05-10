@@ -16,9 +16,12 @@ public class TransitionControl : MonoBehaviour
     public float transitonSpeed;
     public float transitionLimit;
     public Transform triggerCube;
+    public GameObject flashLight;
     [SerializeField]private TextMeshProUGUI uGUI;
     private string tooltip = "";
     public int count = 0;
+    public GameObject currentTimelineProp;
+    public GameObject pastTimelineProp;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +113,7 @@ public class TransitionControl : MonoBehaviour
     }
 
 
+   /*
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         GameObject a = hit.gameObject;
@@ -122,7 +126,7 @@ public class TransitionControl : MonoBehaviour
             }
             else
             {
-                count++;
+                
             }
             
             Debug.Log("collect");
@@ -130,7 +134,20 @@ public class TransitionControl : MonoBehaviour
             Destroy(a);
         }
     }
+    */
+    public void PickUpShard(GameObject a)
+    {
+        count++;
+        //play audio
+        Destroy(a);
+    }
 
+    public void PickUpTimeDevice(GameObject a)
+    {
+        CanTimeSwap = true;
+        tooltip = "\npress Q to switch timeline";
+        Destroy(a);
+    }
     public void ChangeState(PlayerState newPlayerState)
     {
         if (currentPlayerState != null) currentPlayerState.Leave();

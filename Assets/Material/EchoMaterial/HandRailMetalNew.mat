@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalicA:
-        m_Texture: {fileID: 2800000, guid: c68f450449c60834198dd1716a8ea9b1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 864b2b7cf3d1ad140ab151288b6b017f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalicB:
@@ -122,11 +122,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _distance: 150
+    - _distance: -5
     - _edgewidth: 1
     - _lerpMutiply: 0
     - _off: 1
-    - _reverse: -1
+    - _reverse: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
