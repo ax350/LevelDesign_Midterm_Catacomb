@@ -95,11 +95,11 @@ public class TransitionControl : MonoBehaviour
         
         currentPlayerState.stateBehavior();
         Debug.Log(Vector3.Distance(transform.position, triggerCube.position));
-        if (Vector3.Distance(transform.position,triggerCube.position) < 20 && count == 4 && currentPlayerState.ToString().Equals("Past"))
+        if (Vector3.Distance(transform.position,triggerCube.position) < 20 && count == 6 && currentPlayerState.ToString().Equals("Past"))
         {
             Malfunction = true;
         }
-        uGUI.text = "shards collected " + count.ToString() + "/4" + tooltip;
+        uGUI.text = "shards collected " + count.ToString() + "/6" + tooltip;
         
         foreach (Material a in badMaterials)
         {
