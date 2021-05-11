@@ -17,7 +17,7 @@ public class Current: PlayerState
     public override void stateBehavior()
     {
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && playerStateManager.TimeDeviceCharge > 5)
         {
             if (playerStateManager.CanTimeSwap)
             {
@@ -26,6 +26,8 @@ public class Current: PlayerState
             
         }
 
+        playerStateManager.TimeDeviceCharge += playerStateManager.TimeDeviceRechargeSpeed * Time.deltaTime;
+        playerStateManager.TimeDeviceCharge = Mathf.Min(playerStateManager.TimeDeviceChargeMax,playerStateManager.TimeDeviceCharge);
     }
 
     public override void Enter()
@@ -88,6 +90,7 @@ public class CurrentToPast : PlayerState
             }
 
         }
+        playerStateManager.TimeDevice.SetBool("open", true);
         playerStateManager.pastTimeLinePrefab.SetActive(true);
         playerStateManager.currentTimeLinePrefab.SetActive(true);
         playerStateManager.displayDistance = -1;
@@ -127,10 +130,11 @@ public class Past : PlayerState
 
     public override void stateBehavior()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || playerStateManager.TimeDeviceCharge <= 0)
         {
             if (playerStateManager.Malfunction)
             {
+                playerStateManager.TimeDeviceCharge = 99;
                 playerStateManager.ChangeState(new PastToPast(playerStateManager));
             }
             else if (playerStateManager.CanTimeSwap)
@@ -139,7 +143,9 @@ public class Past : PlayerState
             }
 
         }
-
+        playerStateManager.TimeDevice.SetFloat("speed", playerStateManager.Remap(playerStateManager.TimeDeviceCharge, 0, playerStateManager.TimeDeviceChargeMax, 0.1f, 1.2f));
+        playerStateManager.TimeDeviceCharge -= Time.deltaTime;
+        playerStateManager.TimeDeviceCharge = Mathf.Max(0, playerStateManager.TimeDeviceCharge);
 
     }
 
@@ -154,7 +160,9 @@ public class Past : PlayerState
 
     public override void Leave()
     {
+
         base.Leave();
+        playerStateManager.TimeDevice.SetFloat("speed",1);
         playerStateManager.pastTimelineProp.SetActive(false);
     }
 }
@@ -305,6 +313,7 @@ public class PastToCurrent : PlayerState
             }
 
         }
+        playerStateManager.TimeDevice.SetBool("open", false);
         playerStateManager.pastTimeLinePrefab.SetActive(true);
         playerStateManager.currentTimeLinePrefab.SetActive(true);
         //distance = playerStateManager.displayDistance;

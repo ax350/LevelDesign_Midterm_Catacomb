@@ -22,10 +22,19 @@ public class TransitionControl : MonoBehaviour
     public int count = 0;
     public GameObject currentTimelineProp;
     public GameObject pastTimelineProp;
+    public Animator TimeDevice;
+    [HideInInspector]public float TimeDeviceCharge;
+    public float TimeDeviceChargeMax;
+    public float TimeDeviceRechargeSpeed;
+    public Material timeDeviceGlow;
+    [SerializeField]private Color TimeDeviceEmissionColor;
+    [SerializeField] private GameObject TimeDeviceInHand;
+    [SerializeField] List<Light> shardLight;
     // Start is called before the first frame update
     void Start()
     {
         //
+        //TimeDeviceEmissionColor = timeDeviceGlow.GetColor("_EmissionColor");
         foreach (Material a in badMaterials)
         {
             if (a != null)
@@ -54,11 +63,36 @@ public class TransitionControl : MonoBehaviour
         ChangeState(new Current(this));
         //currentTimeLinePrefab.transform.position = new Vector3(0,0,0);
     }
+    public float Remap(float from, float fromMin, float fromMax, float toMin, float toMax)
+    {
+        float fromAbs = from - fromMin;
+        float fromMaxAbs = fromMax - fromMin;
+
+        float normal = fromAbs / fromMaxAbs;
+
+        float toMaxAbs = toMax - toMin;
+        float toAbs = toMaxAbs * normal;
+
+        float to = toAbs + toMin;
+
+        return to;
+
+    }
 
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < shardLight.Count; i++)
+        {
+            if (shardLight[i] != null)
+            {
+                shardLight[i].intensity = Mathf.PerlinNoise(Time.realtimeSinceStartup*0.2f, 0.33f*i) * 2.0f+ 4;
+                shardLight[i].range = Mathf.PerlinNoise(Time.realtimeSinceStartup * 0.2f, 0.53f * i) * 2.0f + 5;
+            }
+        }
 
+        timeDeviceGlow.SetColor("_EmissionColor", TimeDeviceEmissionColor * Remap(TimeDeviceCharge,0,TimeDeviceChargeMax,-1.5f,2.5f));
+        
         currentPlayerState.stateBehavior();
         Debug.Log(Vector3.Distance(transform.position, triggerCube.position));
         if (Vector3.Distance(transform.position,triggerCube.position) < 20 && count == 4 && currentPlayerState.ToString().Equals("Past"))
@@ -66,6 +100,7 @@ public class TransitionControl : MonoBehaviour
             Malfunction = true;
         }
         uGUI.text = "shards collected " + count.ToString() + "/4" + tooltip;
+        
         foreach (Material a in badMaterials)
         {
             if (a != null)
@@ -82,7 +117,7 @@ public class TransitionControl : MonoBehaviour
             }
 
         }
-
+        
         if (Input.GetKey(KeyCode.C))
         {
             displayDistance += 4 * Time.deltaTime;
@@ -145,6 +180,7 @@ public class TransitionControl : MonoBehaviour
     public void PickUpTimeDevice(GameObject a)
     {
         CanTimeSwap = true;
+        TimeDeviceInHand.SetActive(true);
         tooltip = "\npress Q to switch timeline";
         Destroy(a);
     }
@@ -154,4 +190,6 @@ public class TransitionControl : MonoBehaviour
         currentPlayerState = newPlayerState;
         currentPlayerState.Enter();
     }
+
+
 }
