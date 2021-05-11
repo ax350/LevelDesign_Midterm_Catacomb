@@ -30,6 +30,7 @@ public class TransitionControl : MonoBehaviour
     [SerializeField]private Color TimeDeviceEmissionColor;
     [SerializeField] private GameObject TimeDeviceInHand;
     [SerializeField] List<Light> shardLight;
+    [SerializeField] List<GameObject> doors;
     // Start is called before the first frame update
     void Start()
     {
@@ -118,6 +119,7 @@ public class TransitionControl : MonoBehaviour
 
         }
         
+        /*
         if (Input.GetKey(KeyCode.C))
         {
             displayDistance += 4 * Time.deltaTime;
@@ -126,6 +128,8 @@ public class TransitionControl : MonoBehaviour
         {
             displayDistance -= 4 * Time.deltaTime;
         }
+        */
+        /*
         if (Input.GetKeyDown(KeyCode.X))
         {
             foreach (Material a in badMaterials)
@@ -143,6 +147,15 @@ public class TransitionControl : MonoBehaviour
                     a.SetInt("_off", 1);
                 }
 
+            }
+        }
+        */
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach (GameObject a in doors)
+            {
+                a.SetActive(!a.activeSelf);
             }
         }
     }
